@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="月音香（Tsukineka）— 月と水と静寂の癒し。月音香米・セッションのご案内。" />
+  <title>月音香 Tsukineka</title>
+
+  <!-- Google Fonts: Noto Serif JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================
+    ナビゲーション
+  ========================= -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="#top" class="logo">月音香</a>
+      <ul class="nav-links">
+        <li><a href="#about">月音香とは</a></li>
+        <li><a href="#rice">月音香米</a></li>
+        <li><a href="#session">セッション</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =========================
+    ヒーロー
+  ========================= -->
+  <section id="top" class="hero fade-in">
+    <div class="hero-inner">
+      <p class="hero-sub">— moon · water · stillness —</p>
+      <h1 class="hero-title">月音香</h1>
+      <p class="hero-catch">静寂のなかに、あなたの音を聴く。</p>
+      <div class="hero-actions">
+        <a href="#rice" class="btn btn-primary">月音香米🌾 を見る</a>
+        <a href="#session" class="btn btn-secondary">セッションを申し込む</a>
+      </div>
+    </div>
+    <div class="hero-moon" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- =========================
+    月音香とは（About）
+  ========================= -->
+  <section id="about" class="about fade-in">
+    <div class="section-inner narrow">
+      <span class="section-label">About</span>
+      <h2 class="section-title">月音香とは</h2>
+      <p class="section-text">
+        月の巡りと水の流れに寄り添い、<br class="br-sp" />
+        静かに内なる声を聴く場所。<br /><br />
+        月音香は、自然と調和した癒しの空間として、<br class="br-sp" />
+        心と体をやさしく整えるセッションと、<br />
+        大地の恵みを受けた月音香米🌾をお届けします。
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =========================
+    月音香米🌾 購入フォーム（既存をそのまま貼る／編集禁止）
+    ここから
+  ========================= -->
+  <section id="rice" class="rice fade-in">
+    <div class="section-inner">
+      <span class="section-label">Rice</span>
+      <h2 class="section-title">月音香米🌾</h2>
+      <p class="section-text">
+        月の光と清らかな水で育まれた、<br />
+        大地の恵みをそのままに。
+      </p>
+
+      <div id="tsukineka-rice-purchase-form">
+        <!-- TODO: ここに既存の購入フォームHTMLをそのまま貼る（編集禁止） -->
+      </div>
+
+    </div>
+  </section>
+  <!-- =========================
+    ここまで
+  ========================= -->
+
+
+  <!-- =========================
+    セッション申し込みフォーム
+    ※ 実装方式：B — Formspree（差し替え可能）
+       action の "YOUR_FORMSPREE_ID" を実際のIDに差し替えてください。
+       例: https://formspree.io/f/abcdefgh
+  ========================= -->
+  <section id="session" class="session fade-in">
+    <div class="section-inner narrow">
+      <span class="section-label">Session</span>
+      <h2 class="section-title">セッション申し込み</h2>
+      <p class="section-text">
+        月音香のセッションへのお申し込みフォームです。<br />
+        送信後、公式LINEよりご案内をお送りします。
+      </p>
+
+      <!-- ▼ セッション申し込みフォーム（Formspree） -->
+      <form
+        id="session-form"
+        class="session-form"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name">お名前 <span class="required">必須</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 花子" required autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="kana">フリガナ <span class="required">必須</span></label>
+          <input type="text" id="kana" name="kana" placeholder="ヤマダ ハナコ" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">メールアドレス <span class="required">必須</span></label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="tel">電話番号</label>
+          <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" autocomplete="tel" />
+        </div>
+
+        <div class="form-group">
+          <label for="session-type">ご希望のセッション <span class="required">必須</span></label>
+          <select id="session-type" name="session-type" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="individual">個人セッション</option>
+            <option value="online">オンラインセッション</option>
+            <option value="other">その他（備考欄にご記入ください）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">ご質問・備考</label>
+          <textarea id="message" name="message" rows="4" placeholder="ご自由にお書きください"></textarea>
+        </div>
+
+        <!-- Formspree スパム対策 -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <!-- 送信後リダイレクト（モーダル表示のため空欄にする） -->
+        <input type="hidden" name="_next" value="about:blank" />
+
+        <button type="submit" class="btn btn-submit" id="submit-btn">
+          申し込む
+        </button>
+      </form>
+      <!-- ▲ セッション申し込みフォーム ここまで -->
+
+
+      <!-- ▼ 送信完了メッセージ（初期は非表示） -->
+      <div id="form-success" class="form-success" aria-live="polite" hidden>
+        <div class="success-icon" aria-hidden="true">🌕</div>
+        <h3 class="success-title">お申し込みありがとうございます</h3>
+        <p class="success-text">
+          ご入力内容を確認のうえ、メールにてご連絡いたします。<br />
+          次のステップとして、公式LINEへのご登録をお願いします。
+        </p>
+
+        <!-- 公式LINE登録ボタン（送信完了後に表示） -->
+        <a
+          href="https://lin.ee/REPLACE_ME"
+          class="btn btn-line"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2C6.477 2 2 6.145 2 11.25c0 3.926 2.461 7.338 6.105 9.03-.084.756-.32 2.41-.367 2.78-.059.46.167.455.352.33.145-.097 1.946-1.314 2.73-1.847.387.054.78.082 1.18.082 5.523 0 10-4.145 10-9.25S17.523 2 12 2z"/>
+          </svg>
+          公式LINEに登録して次の案内を受け取る
+        </a>
+      </div>
+      <!-- ▲ 送信完了メッセージ ここまで -->
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+    フッター
+  ========================= -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-logo">月音香 Tsukineka</p>
+      <p class="footer-copy">&copy; 2025 Tsukineka. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
