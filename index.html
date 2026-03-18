@@ -92,9 +92,7 @@
 
   <!-- =========================
     セッション申し込みフォーム
-    ※ 実装方式：B — Formspree（差し替え可能）
-       action の "YOUR_FORMSPREE_ID" を実際のIDに差し替えてください。
-       例: https://formspree.io/f/abcdefgh
+    ※ 実装方式：Google Apps Script（no-cors fetch 送信）
   ========================= -->
   <section id="session" class="session fade-in">
     <div class="section-inner narrow">
@@ -105,11 +103,11 @@
         送信後、公式LINEよりご案内をお送りします。
       </p>
 
-      <!-- ▼ セッション申し込みフォーム（Formspree） -->
+      <!-- ▼ セッション申し込みフォーム（Google Apps Script） -->
       <form
         id="session-form"
         class="session-form"
-        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        action="https://script.google.com/macros/s/AKfycbys5hoN8LxlMqs1H9dQ5zLk9YaV84E20RikkahTXgC5EP_poWx_QEAxLqKss_v3IyWj/exec"
         method="POST"
       >
         <div class="form-group">
@@ -146,12 +144,6 @@
           <label for="message">ご質問・備考</label>
           <textarea id="message" name="message" rows="4" placeholder="ご自由にお書きください"></textarea>
         </div>
-
-        <!-- Formspree スパム対策 -->
-        <input type="text" name="_gotcha" style="display:none" />
-
-        <!-- 送信後リダイレクト（モーダル表示のため空欄にする） -->
-        <input type="hidden" name="_next" value="about:blank" />
 
         <button type="submit" class="btn btn-submit" id="submit-btn">
           申し込む

@@ -37,8 +37,8 @@
 
 /* -----------------------------------------------
    2. セッション申し込みフォーム送信処理
-      実装方式：B — Formspree（fetch 送信）
-      フォームの action に Formspree の URL をセットしてください。
+      実装方式：Google Apps Script（no-cors fetch 送信）
+      フォームの action に Google Apps Script の Web アプリ URL をセットしてください。
 ----------------------------------------------- */
 (function initSessionForm() {
   var form    = document.getElementById('session-form');
@@ -52,31 +52,20 @@
 
     var action = form.getAttribute('action');
 
-    // 未設定チェック（開発時のフォールバック）
-    if (!action || action.indexOf('YOUR_FORMSPREE_ID') !== -1) {
-      showSuccess();
-      return;
-    }
-
     // ボタンを送信中に変更
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中…';
 
     var data = new FormData(form);
 
+    // Google Apps Script は no-cors で送信（CORS制限のため）
     fetch(action, {
       method: 'POST',
       body: data,
-      headers: { 'Accept': 'application/json' }
+      mode: 'no-cors'
     })
-      .then(function (res) {
-        if (res.ok) {
-          showSuccess();
-        } else {
-          return res.json().then(function (json) {
-            throw new Error(json.error || '送信エラー');
-          });
-        }
+      .then(function () {
+        showSuccess();
       })
       .catch(function (err) {
         console.error('[TsuninekaForm] 送信失敗:', err);
