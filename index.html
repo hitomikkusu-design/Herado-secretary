@@ -1,204 +1,886 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="月音香（Tsukineka）— 月と水と静寂の癒し。月音香米・セッションのご案内。" />
-  <title>月音香 Tsukineka</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月音香（つきねか）公式リンクページ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Google Fonts: Noto Serif JP -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+        :root {
+            --sand: #f5f1ed;
+            --sand-dark: #e8e4df;
+            --gold: #c9a26e;
+            --gold-dark: #b8916a;
+            --brown: #5a4a3a;
+            --brown-light: #8a7a6a;
+            --brown-lighter: #9a8a7a;
+            --cream: #fafaf8;
+            --border: #e0d5c7;
+            --border-dark: #d5c9b8;
+        }
 
-  <link rel="stylesheet" href="style.css" />
+        body {
+            font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+            line-height: 1.8;
+            color: var(--brown);
+            background: linear-gradient(180deg, var(--sand) 0%, var(--sand-dark) 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, rgba(245, 241, 237, 0.95) 0%, rgba(232, 228, 223, 0.95) 100%);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><path d="M50 10 C45 15, 40 25, 40 40 L38 45 L40 50 C40 60, 45 70, 50 75 C55 70, 60 60, 60 50 L62 45 L60 40 C60 25, 55 15, 50 10 M35 42 L30 45 M35 48 L30 50 M65 42 L70 45 M65 48 L70 50" fill="none" stroke="%23c9a26e" stroke-width="1.5"/></svg>');
+            background-size: 120px;
+            background-position: -10% -10%, 110% 110%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--brown);
+            margin-bottom: 20px;
+        }
+
+        .header .subtitle {
+            font-size: clamp(14px, 2.5vw, 18px);
+            color: var(--brown-light);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .header .tagline {
+            font-size: clamp(13px, 2vw, 15px);
+            color: var(--brown-lighter);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--brown);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .section-title::before {
+            content: '🌾';
+            display: block;
+            font-size: 24px;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .about-text {
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 2;
+            color: var(--brown);
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .products-grid {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(90, 74, 58, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.02"><circle cx="50" cy="50" r="40" fill="none" stroke="%23c9a26e" stroke-width="0.5"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23c9a26e" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23c9a26e" stroke-width="0.5"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .product-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(90, 74, 58, 0.12);
+        }
+
+        .product-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .product-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(20px, 3vw, 24px);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .product-subtitle {
+            font-size: 13px;
+            color: var(--brown-light);
+            letter-spacing: 0.08em;
+        }
+
+        .product-detail {
+            margin-bottom: 20px;
+        }
+
+        .product-label {
+            font-size: 12px;
+            color: var(--brown-lighter);
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .product-value {
+            font-size: 15px;
+            color: var(--brown);
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+
+        .product-price-note {
+            font-size: 12px;
+            color: var(--brown-lighter);
+            margin-left: 8px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--brown);
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 162, 110, 0.3);
+        }
+
+        .btn-line {
+            background: #06C755;
+            color: white;
+        }
+
+        .btn-line:hover {
+            background: #05b04c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6, 199, 85, 0.3);
+        }
+
+        .session-section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(90, 74, 58, 0.08);
+            text-align: center;
+        }
+
+        .session-description {
+            font-size: 15px;
+            line-height: 2;
+            color: var(--brown);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .session-author {
+            font-size: 13px;
+            color: var(--brown-light);
+            letter-spacing: 0.1em;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .form-section {
+            background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
+            padding: 80px 0;
+            margin: 80px -20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.04"><circle cx="50" cy="50" r="40" fill="%23c9a26e"/><circle cx="35" cy="40" r="15" fill="%23f5f1ed"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .form-section::after {
+            content: '🌾';
+            position: absolute;
+            bottom: 40px;
+            right: 5%;
+            font-size: 60px;
+            opacity: 0.05;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(90, 74, 58, 0.12);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-header h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(24px, 4vw, 28px);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--brown);
+            margin-bottom: 12px;
+        }
+
+        .form-header p {
+            font-size: 14px;
+            color: var(--brown-light);
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--brown);
+            letter-spacing: 0.05em;
+        }
+
+        .required {
+            color: var(--gold);
+            margin-left: 4px;
+            font-size: 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--brown);
+            background: var(--cream);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(201, 162, 110, 0.1);
+        }
+
+        textarea.form-input {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-note {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--brown-lighter);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--cream);
+            position: relative;
+            z-index: 1;
+        }
+
+        .radio-option:hover {
+            border-color: var(--gold);
+            background: white;
+        }
+
+        .radio-option input[type="radio"],
+        .radio-option input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--brown);
+            flex: 1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            position: relative;
+            z-index: 10;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 162, 110, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: var(--border-dark);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 24px;
+            color: var(--brown);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .success-message p {
+            color: var(--brown-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .error-message {
+            display: none;
+            padding: 16px;
+            background: #fff5f5;
+            border: 1px solid #ffcccc;
+            border-radius: 8px;
+            color: #c54040;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--brown-lighter);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px 40px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .section {
+                margin-bottom: 60px;
+            }
+
+            .product-card,
+            .form-container {
+                padding: 30px 24px;
+            }
+
+            .form-section {
+                margin: 60px -20px;
+                padding: 60px 20px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
+    <header class="header">
+        <h1>月音香</h1>
+        <p class="subtitle">月音香へようこそ</p>
+        <p class="tagline">毎日を大切にする人へ。<br>月音香は、日々の祈りと感謝を形にしたものです。</p>
+    </header>
 
-  <!-- =========================
-    ナビゲーション
-  ========================= -->
-  <header class="site-header">
-    <nav class="nav-inner">
-      <a href="#top" class="logo">月音香</a>
-      <ul class="nav-links">
-        <li><a href="#about">月音香とは</a></li>
-        <li><a href="#rice">月音香米</a></li>
-        <li><a href="#session">セッション</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">月音香とは</h2>
+            <p class="about-text">
+                月音香は、梶永瞳が、日々の暮らしの中で心・體・感覚が静かに整っていく時間を、一つひとつ丁寧に形にしてきたブランドです。
+            </p>
+            <p class="about-text">
+                毎月の月の満ち欠けに意識を向け、季節の巡りや、目に見えないリズムに耳を澄ませながら感謝の気持ちを込めて手を動かす。
+            </p>
+            <p class="about-text">
+                そんな営みの中から生まれたのが、「祈り米」をはじめとする月音香のものづくりです。
+            </p>
+            <p class="about-text">
+                それは特別な修行でも、難しいスピリチュアルでもありません。
+            </p>
+            <p class="about-text">
+                ごはんを炊くこと、香りを感じること、呼吸が、ふっと深くなること。<br>
+                そうした当たり前の瞬間に、本来の自分のリズムが戻ってくる——
+            </p>
+            <p class="about-text">
+                月音香は、そんな感覚を大切にしています。
+            </p>
+        </section>
 
+        <section class="section">
+            <h2 class="section-title">今お迎えできるもの</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">お試しサポート</h3>
+                        <p class="product-subtitle">初めての方へ</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">内容</p>
+                        <p class="product-value">祈り米1種 + 選び方のヒント、約1kg</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">価格</p>
+                        <p class="product-value">
+                            <span class="product-price">2,222円</span>
+                            <span class="product-price-note">（税込）※ 送料別</span>
+                        </p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">説明</p>
+                        <p class="product-description">
+                            初めての方や、感覚で試したい方向け。あなたに合うかたちを選ぶためのサポート付きです。
+                        </p>
+                    </div>
+                    <a href="#order-form" class="btn btn-primary" onclick="selectProduct('お試しサポート（2,222円）'); return false;">ご注文フォームへ</a>
+                </div>
 
-  <!-- =========================
-    ヒーロー
-  ========================= -->
-  <section id="top" class="hero fade-in">
-    <div class="hero-inner">
-      <p class="hero-sub">— moon · water · stillness —</p>
-      <h1 class="hero-title">月音香</h1>
-      <p class="hero-catch">静寂のなかに、あなたの音を聴く。</p>
-      <div class="hero-actions">
-        <a href="#rice" class="btn btn-primary">月音香米🌾 を見る</a>
-        <a href="#session" class="btn btn-secondary">セッションを申し込む</a>
-      </div>
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">日常調和セット</h3>
+                        <p class="product-subtitle">おためしから、トリニティへのステップアップ用</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">内容</p>
+                        <p class="product-value">白米・分づき米・玄米から一種を選択、3kg</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">価格</p>
+                        <p class="product-value">
+                            <span class="product-price">4,444円</span>
+                            <span class="product-price-note">（税込）※ 送料別</span>
+                        </p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">説明</p>
+                        <p class="product-description">
+                            おためしでは少し物足りないけれど、トリニティに進む前に、まずは日常でしっかり味わいたい方のためのセットです。白米・分づき米・玄米の中から一種を選び、毎日の食卓で無理なく続けられる3kgでお届けします。
+                        </p>
+                    </div>
+                    <a href="#order-form" class="btn btn-primary" onclick="selectProduct('日常調和セット（4,444円）'); return false;">ご注文フォームへ</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">トリニティセット</h3>
+                        <p class="product-subtitle">月音香の世界を一度に体験できるセット</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">内容</p>
+                        <p class="product-value">結界（玄米）+ 統合（七分づき）+ 調和（白米）、各約2kg × 3種</p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">価格</p>
+                        <p class="product-value">
+                            <span class="product-price">8,888円</span>
+                            <span class="product-price-note">（税込）※ 全国一律・送料込み</span>
+                        </p>
+                    </div>
+                    <div class="product-detail">
+                        <p class="product-label">説明</p>
+                        <p class="product-description">
+                            月音香の世界を一度に体験できるセット。三つのかたちを通じて、自分に合うリズムを見つけるためのセットです。
+                        </p>
+                    </div>
+                    <a href="#order-form" class="btn btn-primary" onclick="selectProduct('トリニティセット（8,888円）'); return false;">ご注文フォームへ</a>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="hero-moon" aria-hidden="true"></div>
-  </section>
 
+    <section class="form-section" id="order-form">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>ご注文フォーム</h2>
+                <p>ご注文内容とお届け先情報をご入力ください。<br>
+                ご記入後、公式LINEへのご登録をお願いいたします。<br>
+                毎日を大切にする時間を、月音香とともに。</p>
+            </div>
 
-  <!-- =========================
-    月音香とは（About）
-  ========================= -->
-  <section id="about" class="about fade-in">
-    <div class="section-inner narrow">
-      <span class="section-label">About</span>
-      <h2 class="section-title">月音香とは</h2>
-      <p class="section-text">
-        月の巡りと水の流れに寄り添い、<br class="br-sp" />
-        静かに内なる声を聴く場所。<br /><br />
-        月音香は、自然と調和した癒しの空間として、<br class="br-sp" />
-        心と体をやさしく整えるセッションと、<br />
-        大地の恵みを受けた月音香米🌾をお届けします。
-      </p>
+            <div id="errorMessage" class="error-message"></div>
+
+            <form id="orderForm">
+                <div class="form-group">
+                    <label class="form-label">
+                        お名前 <span class="required">*必須</span>
+                    </label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        郵便番号 <span class="required">*必須</span>
+                    </label>
+                    <input type="text" name="zipcode" class="form-input" placeholder="例）123-4567" required>
+                    <small class="form-note">ハイフンを含めてご入力ください</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        住所 <span class="required">*必須</span>
+                    </label>
+                    <input type="text" name="address" class="form-input" placeholder="都道府県から建物名・部屋番号まで" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        電話番号 <span class="required">*必須</span>
+                    </label>
+                    <input type="tel" name="phone" class="form-input" placeholder="例）090-1234-5678" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">メールアドレス</label>
+                    <input type="email" name="email" class="form-input">
+                    <small class="form-note">任意</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        ご希望の商品 <span class="required">*必須（複数選択可）</span>
+                    </label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="checkbox" id="product1" name="product" value="お試しサポート（2,222円）">
+                            <label for="product1">お試しサポート（2,222円）</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="checkbox" id="product2" name="product" value="日常調和セット（4,444円）">
+                            <label for="product2">日常調和セット（4,444円）</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="checkbox" id="product3" name="product" value="トリニティセット（8,888円）">
+                            <label for="product3">トリニティセット（8,888円）</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="checkbox" id="product4" name="product" value="セッション申し込み">
+                            <label for="product4">セッション申し込み</label>
+                        </div>
+                    </div>
+                    <small class="form-note">複数の商品を同時にご注文いただけます</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">お米の種類</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="rice1" name="riceType" value="結界（玄米）" checked>
+                            <label for="rice1">結界（玄米）</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rice2" name="riceType" value="調和（白米）">
+                            <label for="rice2">調和（白米）</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rice3" name="riceType" value="統合（五分づき）">
+                            <label for="rice3">統合（五分づき）</label>
+                        </div>
+                    </div>
+                    <small class="form-note">
+                        お試しサポート・日常調和セットをお選びの方のみご回答ください。<br>
+                        ご指定がない場合は結界（玄米）をお届けします。
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">ご要望・メッセージ</label>
+                    <textarea name="message" class="form-input" placeholder="ご質問やご要望がございましたら、お気軽にお書きください"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">ご注文を送信する</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                <h2>ご注文ありがとうございます</h2>
+                <p>
+                    次のステップとして、月音香公式LINEへのご登録をお願いいたします。<br>
+                    ご注文の確定や発送のご連絡は、LINEを通じてお送りいたします。<br><br>
+                    心を込めてお届けいたします。<br>
+                    月音香
+                </p>
+                <a href="https://lin.ee/boe7Fiq" class="btn btn-line" target="_blank">公式LINE登録はこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">セッション</h2>
+            <div class="session-section">
+                <p class="session-description">
+                    生命の守り人｜月音香 主宰・梶永瞳によるセッションは、心と體の奥底にある声に耳を澄ませ、本来のリズムを取り戻すための時間です。<br><br>
+                    対話を通じて、あなた自身が本来持っている力に気づいていくのを、静かに見守るセッションです。
+                </p>
+                <a href="#order-form" class="btn btn-primary" onclick="selectProduct('セッション申し込み'); return false;">ご注文フォームへ</a>
+                <p class="session-author">
+                    生命の守り人｜月音香 主宰<br>
+                    梶永瞳
+                </p>
+            </div>
+        </section>
     </div>
-  </section>
 
+    <footer class="footer">
+        <p>© 月音香（つきねか）</p>
+    </footer>
 
-  <!-- =========================
-    月音香米🌾 購入フォーム（既存をそのまま貼る／編集禁止）
-    ここから
-  ========================= -->
-  <section id="rice" class="rice fade-in">
-    <div class="section-inner">
-      <span class="section-label">Rice</span>
-      <h2 class="section-title">月音香米🌾</h2>
-      <p class="section-text">
-        月の光と清らかな水で育まれた、<br />
-        大地の恵みをそのままに。
-      </p>
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbys5hoN8LxlMqs1H9dQ5zLk9YaV84E20RikkahTXgC5EP_poWx_QEAxLqKss_v3IyWj/exec';
 
-      <div id="tsukineka-rice-purchase-form">
-        <!-- TODO: ここに既存の購入フォームHTMLをそのまま貼る（編集禁止） -->
-      </div>
+        function selectProduct(productName) {
+            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+                const productCheckboxes = document.querySelectorAll('input[name="product"]');
+                productCheckboxes.forEach(checkbox => {
+                    if (checkbox.value === productName) {
+                        checkbox.checked = true;
+                    }
+                });
+            }, 500);
+        }
 
-    </div>
-  </section>
-  <!-- =========================
-    ここまで
-  ========================= -->
+        const form = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
 
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-  <!-- =========================
-    セッション申し込みフォーム
-    ※ 実装方式：B — Formspree（差し替え可能）
-       action の "YOUR_FORMSPREE_ID" を実際のIDに差し替えてください。
-       例: https://formspree.io/f/abcdefgh
-  ========================= -->
-  <section id="session" class="session fade-in">
-    <div class="section-inner narrow">
-      <span class="section-label">Session</span>
-      <h2 class="section-title">セッション申し込み</h2>
-      <p class="section-text">
-        月音香のセッションへのお申し込みフォームです。<br />
-        送信後、公式LINEよりご案内をお送りします。
-      </p>
+            const selectedProducts = Array.from(document.querySelectorAll('input[name="product"]:checked'))
+                .map(checkbox => checkbox.value);
 
-      <!-- ▼ セッション申し込みフォーム（Formspree） -->
-      <form
-        id="session-form"
-        class="session-form"
-        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-        method="POST"
-      >
-        <div class="form-group">
-          <label for="name">お名前 <span class="required">必須</span></label>
-          <input type="text" id="name" name="name" placeholder="山田 花子" required autocomplete="name" />
-        </div>
+            if (selectedProducts.length === 0) {
+                errorMessage.textContent = '商品を1つ以上選択してください。';
+                errorMessage.classList.add('show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
 
-        <div class="form-group">
-          <label for="kana">フリガナ <span class="required">必須</span></label>
-          <input type="text" id="kana" name="kana" placeholder="ヤマダ ハナコ" required />
-        </div>
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            errorMessage.classList.remove('show');
 
-        <div class="form-group">
-          <label for="email">メールアドレス <span class="required">必須</span></label>
-          <input type="email" id="email" name="email" placeholder="example@mail.com" required autocomplete="email" />
-        </div>
+            const formData = {
+                name: form.name.value,
+                zipcode: form.zipcode.value,
+                address: form.address.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                product: selectedProducts.join(', '),
+                riceType: form.riceType.value,
+                message: form.message.value
+            };
 
-        <div class="form-group">
-          <label for="tel">電話番号</label>
-          <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" autocomplete="tel" />
-        </div>
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-        <div class="form-group">
-          <label for="session-type">ご希望のセッション <span class="required">必須</span></label>
-          <select id="session-type" name="session-type" required>
-            <option value="" disabled selected>選択してください</option>
-            <option value="individual">個人セッション</option>
-            <option value="online">オンラインセッション</option>
-            <option value="other">その他（備考欄にご記入ください）</option>
-          </select>
-        </div>
+                form.style.display = 'none';
+                successMessage.classList.add('show');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        <div class="form-group">
-          <label for="message">ご質問・備考</label>
-          <textarea id="message" name="message" rows="4" placeholder="ご自由にお書きください"></textarea>
-        </div>
-
-        <!-- Formspree スパム対策 -->
-        <input type="text" name="_gotcha" style="display:none" />
-
-        <!-- 送信後リダイレクト（モーダル表示のため空欄にする） -->
-        <input type="hidden" name="_next" value="about:blank" />
-
-        <button type="submit" class="btn btn-submit" id="submit-btn">
-          申し込む
-        </button>
-      </form>
-      <!-- ▲ セッション申し込みフォーム ここまで -->
-
-
-      <!-- ▼ 送信完了メッセージ（初期は非表示） -->
-      <div id="form-success" class="form-success" aria-live="polite" hidden>
-        <div class="success-icon" aria-hidden="true">🌕</div>
-        <h3 class="success-title">お申し込みありがとうございます</h3>
-        <p class="success-text">
-          ご入力内容を確認のうえ、メールにてご連絡いたします。<br />
-          次のステップとして、公式LINEへのご登録をお願いします。
-        </p>
-
-        <!-- 公式LINE登録ボタン（送信完了後に表示） -->
-        <a
-          href="https://lin.ee/REPLACE_ME"
-          class="btn btn-line"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 2C6.477 2 2 6.145 2 11.25c0 3.926 2.461 7.338 6.105 9.03-.084.756-.32 2.41-.367 2.78-.059.46.167.455.352.33.145-.097 1.946-1.314 2.73-1.847.387.054.78.082 1.18.082 5.523 0 10-4.145 10-9.25S17.523 2 12 2z"/>
-          </svg>
-          公式LINEに登録して次の案内を受け取る
-        </a>
-      </div>
-      <!-- ▲ 送信完了メッセージ ここまで -->
-
-    </div>
-  </section>
-
-
-  <!-- =========================
-    フッター
-  ========================= -->
-  <footer id="contact" class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-logo">月音香 Tsukineka</p>
-      <p class="footer-copy">&copy; 2025 Tsukineka. All rights reserved.</p>
-    </div>
-  </footer>
-
-
-  <script src="script.js"></script>
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.textContent = '送信中にエラーが発生しました。もう一度お試しください。';
+                errorMessage.classList.add('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ご注文を送信する';
+            }
+        });
+    </script>
 </body>
 </html>
