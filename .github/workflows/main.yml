@@ -28,3 +28,4 @@ jobs:
       - name: Push to GAS
         run: clasp push --force
         working-directory: ./gas
+// test
