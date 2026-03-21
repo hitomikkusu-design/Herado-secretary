@@ -10,6 +10,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -21,11 +22,6 @@ jobs:
       - name: Install clasp
         run: npm install -g @google/clasp
 
-      - name: Write clasp credentials
-        run: |
-          echo '${{ secrets.CLASP_CREDENTIALS }}' > ~/.clasprc.json
-
       - name: Push to GAS
-        run: clasp push --force
         working-directory: ./gas
-// test
+        run: clasp push --force
