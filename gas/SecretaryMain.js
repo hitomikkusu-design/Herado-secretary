@@ -497,7 +497,7 @@ function handleWithAI(text) {
       }
     },
     {
-      type: 'function',
+      type: 'function',// test
       function: {
         name: 'add_task',
         description: 'タスクリストにやることを追加する。買い物・仕事・ToDoなどスケジュールのない項目に使う。',
