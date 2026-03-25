@@ -22,6 +22,9 @@ jobs:
       - name: Install clasp
         run: npm install -g @google/clasp
 
+      - name: Authenticate clasp
+        run: echo '${{ secrets.CLASPRC_JSON }}' > ~/.clasprc.json
+
       - name: Push to GAS
         working-directory: ./gas
         run: clasp push --force
