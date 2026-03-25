@@ -634,4 +634,4 @@ function pushLine(userId, message) {
 
 function truncate(str, max) {
   return str.length > max ? str.substring(0, max - 3) + '...' : str;
-}// test run 4
+}// deploy trigger
