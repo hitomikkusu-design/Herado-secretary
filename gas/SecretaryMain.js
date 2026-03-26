@@ -159,12 +159,6 @@ function buildEveningBriefing() {
 
   let msg = `🌙 ${dateStr} 夜のブリーフィング\n\n`;
 
-  if (doneTasks.length > 0) {
-    msg += `✅ 今日完了したタスク（${doneTasks.length}件）\n`;
-    doneTasks.forEach(t => { msg += `  · ${t.text}\n`; });
-    msg += '\n';
-  }
-
   if (remaining.length > 0) {
     msg += `📋 残りタスク（${remaining.length}件）\n`;
     remaining.forEach((t, i) => {
